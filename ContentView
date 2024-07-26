@@ -1,0 +1,55 @@
+//
+//  ContentView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct ContentView: View { 
+enum Tab{
+    case bell, heart, call, people, person
+}
+@State private var selectedTab: Tab = .call
+    
+var body: some View {
+    TabView(selection: $selectedTab){
+        
+        AlertView()
+            .tabItem{
+                Label("Alerts", systemImage: "bell")
+            }
+            .tag(Tab.bell) // alerts tab
+        
+        SafetyView()
+            .tabItem{
+                Label("Safety Tips", systemImage: "heart")
+            }
+            .tag(Tab.heart) // safety tab
+        
+        CallView()
+            .tabItem {
+                Label("Call", systemImage: "phone")
+            }
+            .tag(Tab.call) // call tab
+        
+        FamCircleView()
+            .tabItem {
+                Label("Family Circle", systemImage: "person.2.fill")
+            }
+            .tag(Tab.people) // family circle tab
+        
+        AccountView()
+            .tabItem {
+                Label("Account", systemImage: "person")
+            }
+            .tag(Tab.person)
+        
+    }
+}
+}
+
+#Preview {
+    ContentView()
+}
