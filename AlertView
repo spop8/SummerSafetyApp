@@ -1,0 +1,123 @@
+//
+//  alertMapView.swift
+//  saftey wireframes
+//
+//  Created by DPI Student 029 on 7/12/24.
+//
+
+import SwiftUI
+import MapKit
+
+struct AlertView: View {
+    //base location
+    let lawCenter = CLLocationCoordinate2D(
+        latitude: 41.87916611794204,
+        longitude: -87.6421691765035)
+    //robbery
+    let car = CLLocationCoordinate2D(
+        latitude: 41.880955449966656,
+        longitude: -87.64214771883378)
+    //carcrash
+    let street = CLLocationCoordinate2D(
+        latitude: 41.878023794955965,
+        longitude: -87.6408173433102)
+    //suspicousperson
+    let finance = CLLocationCoordinate2D(
+    latitude: 41.88024631193429,
+    longitude: -87.64253055252262)
+    //fire
+    let cvs = CLLocationCoordinate2D(
+        latitude: 41.88214026130682,
+        longitude: -87.63882262064521)
+    //unsafe
+    let unsafe = CLLocationCoordinate2D(
+        latitude: 41.878684,
+        longitude: -87.639443)
+    
+    var body: some View {
+        ZStack {
+            
+            Map(){
+                Marker("Conviser Law Center", coordinate: lawCenter)
+                    .tint(.secondary)
+                Marker("Robbery", systemImage: "dollarsign.circle", coordinate: car)
+                    .tint(.yellow)
+                Marker("Car Crash", systemImage: "car.circle", coordinate: street)
+                    .tint(.green)
+                Marker("Suspicious Person", systemImage:"person.crop.circle.badge.questionmark", coordinate: finance)
+                Marker("Fire", systemImage: "flame.circle", coordinate: cvs)
+                    .tint(.yellow)
+                Marker("Unsecure User", systemImage: "person.crop.circle.badge.exclamationmark", coordinate: unsafe)
+                    .tint(.orange)
+            }
+            Circle()
+                .fill(Color.clear)
+                .strokeBorder(.orange, lineWidth: 2 )
+                .frame(width:180, height:180)
+                .offset(x:95, y:130)
+            Circle()
+                .fill(Color.orange)
+                .opacity(0.3)
+                .frame(width:180, height:180)
+                .offset(x:95, y:130)
+            // // // // // // // // // //
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:150, y:78)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:35, y:100)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:135, y:186)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:80, y:176)
+            // // // // // // //
+            RoundedRectangle(cornerRadius:20)
+                .fill(Color.secondary)
+                .frame(width:380, height:150)
+                .offset(x:-160, y:-285)
+            VStack{
+                Circle()
+                    .fill(Color.red)
+                    .frame(width:20, height:20)
+                    .offset(x:-170, y:-300)
+               Circle()
+                    .fill(Color.yellow)
+                    .frame(width:20, height:20)
+                    .offset(x:-170, y:-290)
+                Circle()
+                    .fill(Color.green)
+                    .frame(width:20, height:20)
+                    .offset(x:-170, y:-280)
+                Circle()
+                    .fill(Color.orange)
+                    .frame(width:20, height:20)
+                    .offset(x:-170, y:-270)
+                }
+            VStack{
+                Text("Authorities Notified")
+                   .offset(x:-70, y:-305)
+                Text("Resolution In Progress")
+                    .offset(x:-60, y:-290)
+                Text("Resolved")
+                    .offset(x:-110 , y:-275)
+                Text("Unsafe Person")
+                    .offset(x:-90 , y:-260)
+                
+            }
+            }
+        
+
+    }
+}
+
+
+#Preview {
+    AlertView()
+}
