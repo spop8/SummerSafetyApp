@@ -1,0 +1,101 @@
+//
+//  SafetyView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct SafetyView: View {
+    @State private var showFireSafetyView = false
+    @State private var showSelfDefenseView = false
+    @State private var showMedicalView = false
+    @State private var showSchoolView = false
+
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Text("Safety Tips")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Spacer()
+
+            }
+            VStack {
+                // fire safety
+                Button(action: { showFireSafetyView = true }) {
+                    Text("Fire Safety Tips")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(30)
+                }
+                Text("")
+
+            }
+            .navigationDestination(isPresented: $showFireSafetyView) {
+                FireSafetyView()
+            }    // self defense
+            VStack {
+                Button(action: { showSelfDefenseView = true }) {
+                    Text("Self Defense Tips")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(30)
+                }
+                Text("")
+
+            }
+            .navigationDestination(isPresented: $showSelfDefenseView) {
+                SelfDefenseView()
+            } // Medical
+            VStack {
+                Button(action: { showMedicalView = true }) {
+                    Text("Medical Emergency Tips")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(30)
+                }
+                Text("")
+
+            }
+            .navigationDestination(isPresented: $showMedicalView) {
+                MedicalView()
+            } // school
+            VStack {
+                Button(action: { showSchoolView = true }) {
+                    Text("  School Safety Tips")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(30)
+                }
+                Spacer()
+
+            }
+            .navigationDestination(isPresented: $showSchoolView) {
+                SchoolView()
+            
+            }
+        }
+    }
+}
+
+#Preview {
+    SafetyView()
+}
