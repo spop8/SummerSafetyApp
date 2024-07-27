@@ -1,0 +1,120 @@
+//
+//  CallView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct CallView: View {
+    @State private var showPhoneView = false
+    @State private var showPhone2View = false
+    @State private var showFamilyView = false
+    @State private var showSchoolView = false
+    @State private var showReportView = false
+
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Text("Call")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Text("")
+                Text("")
+                //Text("")
+                
+                
+                
+            }
+            //send location
+            VStack {
+                Button(action: { showFamilyView = true }) {
+                    Text("Send location")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .frame(minHeight: 0, maxHeight: 200)
+                    
+                        .padding(.all,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(40)
+                }
+                Text("")
+                
+            }
+            .navigationDestination(isPresented: $showFamilyView) {
+                FamilyView()
+            }
+            // 911
+            HStack {
+                VStack {
+                    Button(action: { showPhoneView = true }) {
+                        Text("911")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .frame(minWidth: 0, maxWidth: 120)
+                            .frame(minHeight: 0, maxHeight: 130)
+                            .padding(.all,20)
+                            .foregroundColor(.blue)
+                            .background(Color.blue)
+                            .cornerRadius(40)
+                    }
+                    Text("")
+                    
+                }
+                .navigationDestination(isPresented: $showPhoneView) {
+                    PhoneView()
+                }
+            
+            // 311
+                VStack {
+                    Button(action: { showPhone2View = true }) {
+                        Text("311")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .frame(minWidth: 0, maxWidth: 120)
+                            .frame(minHeight: 0, maxHeight: 130)
+                        
+                            .padding(.all,20)
+                            .foregroundColor(.blue)
+                            .background(Color.blue)
+                            .cornerRadius(40)
+                    }
+                    Text("")
+                }
+                .navigationDestination(isPresented: $showPhone2View) {
+                    Phone2View()
+                }
+            }
+
+            //report
+            VStack {
+                Button(action: { showReportView = true }) {
+                    Text("Report")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .frame(minHeight: 0, maxHeight: 100)
+                        .padding(.all,20)
+                        .foregroundColor(.blue)
+                        .background(Color.blue)
+                        .cornerRadius(35)
+                }
+                Spacer()
+
+            }
+            .navigationDestination(isPresented: $showReportView) {
+                ReportView()
+            }
+        }
+    }
+}
+#Preview {
+    CallView()
+}
