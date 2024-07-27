@@ -1,0 +1,112 @@
+//
+//  FamilyView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct FamilyView: View {
+    @State private var showDestinationView = false
+    @State private var showAlertView = false
+
+
+    var body: some View {
+        NavigationStack{
+            Spacer()
+            Text("Reason for sharing location:")
+            Spacer()
+            VStack {
+                Button(action: {showDestinationView = false }) {
+                    Text("Being Followed")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 300)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.red)
+                        .cornerRadius(30)
+                }
+            }
+            Button(action: {showDestinationView = false }) {
+                Text("Unsafe Area")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .padding(.vertical,20)
+                    .foregroundColor(.blue)
+                    .background(Color.red)
+                    .cornerRadius(30)
+            }
+            
+            Button(action: {showDestinationView = false }) {
+                Text("Alone Late/Dark Night")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .padding(.vertical,20)
+                    .foregroundColor(.blue)
+                    .background(Color.red)
+                    .cornerRadius(30)
+            }
+            
+            Button(action: {showDestinationView = false }) {
+                Text("Lost")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .padding(.vertical,20)
+                    .foregroundColor(.blue)
+                    .background(Color.red)
+                    .cornerRadius(30)
+            }
+            
+            Button(action: {showDestinationView = false}) {
+                Text("Getting in Uber/Lyft/other")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .padding(.vertical,20)
+                    .foregroundColor(.blue)
+                    .background(Color.red)
+                    .cornerRadius(30)
+            }
+            Spacer()
+            Text("Who do you want to share location with:")
+            HStack{
+                Button(action: {showDestinationView = false }) {
+                    Text("Local")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 150)
+                        .frame(minHeight: 0, maxHeight: 100)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                }
+                Button(action: {showDestinationView = true }) {
+                    Text("Local+")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(minWidth: 0, maxWidth: 150)
+                        .frame(minHeight: 0, maxHeight: 100)
+                        .padding(.vertical,20)
+                        .foregroundColor(.blue)
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                    }
+                }.navigationDestination(isPresented: $showDestinationView) {
+                    DestinationView()
+                }
+            
+            Spacer()
+            Spacer()
+        }
+    }
+}
+
+#Preview {
+    FamilyView()
+}
