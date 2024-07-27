@@ -1,0 +1,46 @@
+//
+//  FireSafetyView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct FireSafetyView: View {
+    var body: some View {
+        Text("Fire Safety Tips")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.top)
+            .foregroundColor(.red)
+        Spacer()
+        GroupBox {
+            Text("Make a Plan")
+                .font(.headline)
+            Text("Plan at least two escape routes from each room in your house. Ensure you have a designated meeting area in case of fire.")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox {
+            Text("In case of Fire")
+                .font(.headline)
+            Text("Get everyone out of the house. Make sure to stay low because heat and smoke rise during a fire. Do NOT use an elevator! ")
+                .multilineTextAlignment(.center)
+            Text("Call 911 using our app. ")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox{
+            Text("Tips")
+                .font(.headline)
+            Text("If you catch on fire, make sure you always")                .multilineTextAlignment(.center)
+            Text("STOP, DROP, and ROLL").fontWeight(.bold) .foregroundColor(Color.red).multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Spacer()
+    }
+}
+
+#Preview {
+    FireSafetyView()
+}
