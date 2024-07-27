@@ -1,0 +1,92 @@
+//
+//  destinationView.swift
+//  saftey wireframes
+//
+//  Created by DPI Student 029 on 7/17/24.
+//
+
+import SwiftUI
+import MapKit
+
+struct DestinationView: View {
+    //home
+    let house = CLLocationCoordinate2D(
+        latitude: 41.8424623862629,
+        longitude:  -87.71335258416616)
+    //work
+    let middleSchoool = CLLocationCoordinate2D(
+        latitude: 41.84130152970601,
+        longitude:  -87.70540698978985)
+    //school
+    let busStop = CLLocationCoordinate2D(
+        latitude: 41.84265952304965,
+        longitude:   -87.70995249630786)
+   
+    var body: some View {
+        ZStack {
+            Map(){
+                Annotation("Home", coordinate: house) {
+                    Image(systemName: "house")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .padding(20)
+                        .background(.red)
+                }
+                Annotation("Work", coordinate: middleSchoool) {
+                    Image(systemName: "mappin")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .padding(20)
+                        .background(.red)
+                }
+                Annotation("Bus Stop", coordinate: busStop) {
+                    Image(systemName: "bus")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .padding(20)
+                        .background(.red)
+                }
+            }//map
+            // //////////////////
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:135, y:106)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:55, y:6)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:-85, y:6)
+            //
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:150, y:-40)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:-5, y:-90)
+            Circle()
+                .fill(Color.blue)
+                .frame(width:15, height:15)
+                .offset(x:-150, y:-70)
+            
+            
+            
+            
+            RoundedRectangle(cornerRadius:20)
+                .fill(Color.secondary)
+                .frame(width:400, height:50)
+                .offset(x:-150, y:-300)
+            Text("Select Destination:")
+                .offset(x:-100, y:-300)
+        }//zstack
+    }
+}
+
+#Preview {
+    DestinationView()
+}
