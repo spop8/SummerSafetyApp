@@ -1,0 +1,104 @@
+//
+//  ReportView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/11/24.
+//
+
+import SwiftUI
+
+struct ReportView: View {
+    
+    @State var name = ""
+    @State var age = ""
+    @State var zipCode = ""
+    @State var date = ""
+    @State var problem = ""
+    @State var myPick = 0
+    @State var location = ""
+    @State var yesNo = 0
+    @State private var showFireSafetyView = false
+
+
+
+    
+    var problems = [
+        "Fire", "Crash",  "Theft", "Suspicious Person", "Medical Issue", "Sexual Assualt", "School Emergency"/*
+                                                                                            , ""*/
+    ]
+    var yesno = [
+        "Yes", "No",
+    ]
+
+
+
+    var body: some View {
+        VStack{
+            Text("Report")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Spacer()
+            Spacer()
+// name
+            TextField("Full Name", text: $name)
+                .border(Color.black)
+                .padding()
+// age
+            TextField("Age", text: $age)
+                .border(Color.black)
+                .padding()
+// zip code
+            TextField("Zip Code", text: $zipCode)
+                .border(Color.black)
+                .padding()
+// date
+            TextField("Date (00-00-0000)", text: $date)
+                .border(Color.black)
+                .padding()
+
+            
+// whats happening
+            Form{
+                Picker(selection: $myPick,
+                       label: Text("What's happening?")){
+                    ForEach(0..<problems.count, id: \.self){
+                        Text(self.problems[$0]).tag($0)
+                    } //Foreach
+                }//Picker
+            }//Form
+// description
+            TextField("Please enter a description of the issue", text: $problem)
+                .border(Color.black)
+                .padding()
+// yes or No
+            Form{
+                Picker(selection: $yesNo,
+                       label: Text("Is the incident in progress? ")){
+                    ForEach(0..<yesno.count, id: \.self){
+                        Text(self.yesno[$0]).tag($0)
+                    } //Foreach
+                }//Picker
+            }//Form
+            
+            
+            Button(action: { showFireSafetyView = true }) {
+                Text("Submit")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .padding(.vertical,20)
+                    .foregroundColor(.blue)
+                    .background(Color.red)
+                    .cornerRadius(30)
+            }
+            
+            
+        }
+
+//        NavigationLink("Go to Toggle", destination: PickerView())
+    }
+}
+
+#Preview {
+    ReportView()
+}
