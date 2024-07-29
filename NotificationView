@@ -1,0 +1,65 @@
+//
+//  ContentView.swift
+//  Real Notification
+//
+//  Created by DPI Student 051 on 7/22/24.
+//
+import SwiftUI
+import UserNotifications
+
+struct NotificationView: View {
+    var body: some View {
+        VStack {
+            Button("Request Permission") {
+                requestNotificationAuthorization()
+            }
+            .padding()
+            
+            Button("Schedule Notification") {
+                scheduleNotification()
+            }
+            .padding()
+        }
+    }
+    
+    // Function to request notification authorization
+    func requestNotificationAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+            if success {
+                print("Notification authorization granted.")
+            } else if let error = error {
+                print("Error requesting notification authorization: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // Function to schedule a notification
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Protect Me"
+        content.subtitle = "Name 2 is off path"
+        content.sound = UNNotificationSound.default
+       
+        
+        // Trigger to show notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        // Random identifier for the notification request
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        // Add the notification request
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully.")
+            }
+        }
+    }
+}
+
+struct NotificationView_Previews: PreviewProvider {
+    static var previews: some View {
+        NotificationView()
+    }
+}
