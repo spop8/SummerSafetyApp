@@ -1,0 +1,38 @@
+//
+//  weapondefenseView.swift
+//  Protect Me
+//
+//  Created by Solena Ornelas Pagnucci on 7/22/24.
+//
+
+import SwiftUI
+
+struct lockdownView: View {
+
+    var body: some View {
+        GroupBox{
+            Text("Steps")
+                .font(.headline)
+            Text("Immediately find a safe and secure area of your classroom. This can include a corner away from view of the door. If not in a classroom, find the nearest classroom with an unlocked door.  ")
+                .multilineTextAlignment(.center)
+            Text("Lock the door and close all windows. Ensure no one can see in the room.")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        GroupBox{
+            Text("Run, Fight, Hide")
+                .font(.headline)
+            Link("Learn how to do run, fight, hide", destination: URL(string: "https://www.smcm.edu/publicsafety/run-hide-fight-active-shooter-protocol/")!)
+        }
+        GroupBox{
+            Text("Tips")
+                .font(.headline)
+            Text("Stay calm, quiet and make sure all your devices are silenced(no nedd to turn off fully).")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        
+    }
+}
+
+#Preview {
+    lockdownView()
+}
