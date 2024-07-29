@@ -1,0 +1,54 @@
+//
+//  SchoolView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct SchoolView: View {
+    @State private var showingLockdown = false
+    @State private var showingTornado = false
+
+        var body: some View {
+            Text("School Safety Tips")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.top)
+                .foregroundColor(.red)
+            Spacer()
+            Button("Lockdown") {
+                showingLockdown.toggle()
+            }.foregroundColor(.white)
+                .fontWeight(.bold)
+                .frame(minWidth: 0, maxWidth: 300)
+                .padding(.vertical,20)
+                .foregroundColor(.blue)
+                .background(Color.red)
+                .cornerRadius(30)
+            .sheet(isPresented: $showingLockdown) {
+                lockdownView()
+            }
+            Button("Tornado") {
+                showingTornado.toggle()
+            }.foregroundColor(.white)
+                .fontWeight(.bold)
+                .frame(minWidth: 0, maxWidth: 300)
+                .padding(.vertical,20)
+                .foregroundColor(.blue)
+                .background(Color.red)
+                .cornerRadius(30)
+            .sheet(isPresented: $showingTornado) {
+                tornadoView()
+            }
+            Spacer()
+            
+        }
+}
+
+#Preview {
+    SchoolView()
+}
+
+
