@@ -1,0 +1,44 @@
+//
+//  FireSafetyView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct MedicalView: View {
+    var body: some View {
+        Text("Medical Emergency Tips")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.top)
+            .foregroundColor(.red)
+        Spacer()
+        GroupBox {
+            Text("Check")
+                .font(.headline)
+            Text("Always check your surroundings to make sure that you are in a safe place. ")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox {
+            Text("Call")
+                .font(.headline)
+            Text("Call 911 using our app. Make sure to give them as much information as possible so that they can best help you.")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox{
+            Text("Care")
+                .font(.headline)
+            Text("If you are CPR certified, begin administering care. If you are not CPR certified do not administer care, instead call a trusted adult nearby to administer care. ")
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Spacer()
+    }
+}
+
+#Preview {
+   MedicalView()
+}
