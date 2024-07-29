@@ -1,0 +1,36 @@
+//
+//  PhoneView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct Phone2View: View {
+    var body: some View {
+        ZStack {
+            Color.secondary
+                .ignoresSafeArea()
+            Image("phone")
+              .resizable()
+              .scaledToFill()
+            Rectangle()
+                .fill(.black)
+                .frame(width: 200, height: 50)
+                .offset(y:-280)
+            Text("311")
+                .font(.system(size: 40))
+                .fontWeight(.regular)
+                .foregroundColor(.white)
+                .opacity(0.8)
+                .offset(y:-280)
+            
+            
+        }
+    }
+}
+
+#Preview {
+    Phone2View()
+}
