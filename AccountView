@@ -1,0 +1,98 @@
+//
+//  ContentView.swift
+//  saftey wireframes
+//
+//  Created by DPI Student 029 on 7/2/24.
+//
+
+import SwiftUI
+
+struct AccountView: View {
+    var body: some View {
+        NavigationView{
+            VStack {
+                HStack{
+                    Spacer()
+                    
+                    NavigationLink("Settings", destination: SettingView())
+                        .background(Color.blue).foregroundColor(.white).cornerRadius(5)
+                        .offset(x:40, y: 45)
+                    Image(systemName: "gearshape")
+                        .frame(width: 100, height: 100)
+                        .offset(y:45)
+                }//hstack1 end
+                Text ("Your account")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.largeTitle)
+                    .offset(x:-50,y: -40)
+                
+                ZStack {
+                    VStack{
+                        Circle()
+                            .fill(Color.secondary)
+                            .frame(width:150, height: 150)
+                                .offset(y: -40)
+                    
+                        Image(systemName: "person.fill")
+                        .resizable()
+                        .frame(width:50,height:50)
+                        .offset(y: -150)
+                        
+                        Text("USERNAME")
+                            .font(.title)
+                            .offset(y:-90)
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.secondary)
+                            .offset(y:-55)
+                            .frame(height:110)
+                            .padding(.horizontal)
+                        RoundedRectangle(cornerRadius:20)
+                            .fill(Color.secondary)
+                            .frame(height:200)
+                            .offset(y:-60)
+                            .padding()
+                        }//vstack
+                    Rectangle()
+                        .fill(Color.secondary)
+                        .frame(height:500)
+                        .offset(y:102)
+                    VStack{
+                            Text("Account Information:")
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .font(.title)
+                            .foregroundColor(Color.red)
+                            .offset(x:-20,y:-50)
+                            Text("Email- realemail@gmaildotcom")
+                            .offset(x:-50,y:-40)
+                            Text("Phone Number- 123-456-7890")
+                            .offset(x:-50, y:-30)
+                        }//vstack
+                    VStack{
+                        Text("Emergency Information:")
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .font(.title)
+                            .foregroundColor(Color.red)
+                            .offset(y:75)
+                        Text("Zip Code- XXXXX")
+                            .offset(x:-97,y:90)
+                        Text("ICOFE Contact- 098-765-4321")
+                            .offset(x:-50, y:100)
+                    }//vstackend
+                    VStack{
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Text("UPDATE INFORMATION")
+                                .padding()
+                                .background(Color.blue).foregroundColor(.white).cornerRadius(5)
+                                .offset(y:200)
+                        })
+                    }//vstack
+                }//vstack 1 end
+            }//vstack2 end
+        }//body end
+    }//contentview end
+}
+struct AccountView_Previews: PreviewProvider {
+    static var previews: some View {
+        AccountView()
+    }
+}
