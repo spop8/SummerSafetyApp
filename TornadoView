@@ -1,0 +1,41 @@
+//
+//  tornadoView.swift
+//  Protect Me
+//
+//  Created by Solena Ornelas Pagnucci on 7/22/24.
+//
+
+import SwiftUI
+
+struct tornadoView: View {
+
+    var body: some View {
+        Text("Tornado")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.top)
+            .foregroundColor(.red)
+        Spacer()
+        GroupBox{
+            Text("Immediately find shelter underground, in a basement or lowest level possible. ")                
+                .multilineTextAlignment(.center)
+            Text("Make sure you are not next to a window or any breakable glass. ")                
+                .multilineTextAlignment(.center)
+            Text("Crouch down with your head tucked-nose to knees- and wrap your arms around your head.")                
+                .multilineTextAlignment(.center)
+            Text("Like so:").multilineTextAlignment(.center)
+            Image("tornado")
+                .resizable()
+                .frame(width:135, height:80)
+            Text("Stay in this position until it is safe. And always remember to stay calm")
+                .multilineTextAlignment(.center)
+        }
+        Spacer()
+    }
+
+}
+
+
+#Preview {
+    tornadoView()
+}
