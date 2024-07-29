@@ -1,0 +1,52 @@
+//
+//  SelfDefenseView.swift
+//  FinalApp
+//
+//  Created by Solena Ornelas Pagnucci on 7/10/24.
+//
+
+import SwiftUI
+
+struct SelfDefenseView: View {
+    var body: some View {
+        Text("Self Defense Tips")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.top)
+            .foregroundColor(.red)
+        Spacer()
+        GroupBox {
+            Text("Physical contact")
+                .font(.headline)
+            Link("Learn 8 helpful self defense moves", destination: URL(string: "https://www.healthline.com/health/womens-health/self-defense-tips-escape#8-moves-to-try")!)
+
+        }.frame(width: 350)
+        Text("")
+        GroupBox {
+            Text("Close combat weapon")
+                .font(.headline)
+            Link("Learn close combat defense moves", destination: URL(string: "https://www.nymaa.com/martial-arts-blog/effective-close-combat-training-using-elbows-knees--fists_ae208.html")!)
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox {
+            Text("Projectile weapons")
+                .font(.headline)
+            Link("Learn projectile weapon defense moves", destination: URL(string: "https://effectiveselfdefense.com/blogs/news/how-to-defend-yourself-against-weapons")!)
+                .multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Text("")
+        GroupBox{
+            Text("Tips")
+                .font(.headline)
+            Text("If you feel unsafe in an area, share your location or call for help. ")
+                .multilineTextAlignment(.center)
+            Text("Give the attacker what they want (money, wallet, phone, etc...) because that could be the best chance")                .multilineTextAlignment(.center)
+            Text("Make sure you are always aware of your surroundings!").fontWeight(.bold) .foregroundColor(Color.red).multilineTextAlignment(.center)
+        }.frame(width: 350)
+        Spacer()    }
+}
+
+#Preview {
+    SelfDefenseView()
+}
