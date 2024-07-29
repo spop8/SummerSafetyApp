@@ -1,0 +1,121 @@
+//settingview
+
+
+//
+//  SettingView.swift
+//  saftey wireframes
+//
+//  Created by DPI Student 029 on 7/9/24.
+//
+
+import SwiftUI
+
+struct SettingView: View {
+    @State var notifications = false
+    @State var textFieldEmail = ""
+    @State var textFieldPhone = ""
+    @State var textFieldAddress = ""
+    @State var myPick = 0
+    
+    var bigIdeas = [
+        "English", "Spanish", "French",
+        "Chinese", "Arabic", "Italian"
+    ]//bigideas
+    
+    var body: some View {
+        HStack{
+// Settings
+            Image(systemName: "gearshape")
+                .resizable()
+                .frame(width:50, height:50)
+                .offset(y:-10)
+                .padding()
+            Text("Settings")
+                .font(.largeTitle)
+                .offset(y:-10)
+            Spacer()
+        }//hstack
+// Notifications
+        VStack{
+            Text("Notifications")
+                .font(.title)
+               .offset(x: -80)
+        }//vstack
+        
+// Toggle
+        Toggle(isOn:$notifications){
+        }//toggle
+        .offset(x:-100,y:-5)
+            Image(systemName: "bell")
+              .offset(x:-170,y:-76)
+            Text("Notifications are on/off")
+              .offset(x:-90,y:-70)
+                .padding()
+
+        VStack{
+// Privacy
+            Text("Privacy")
+                .font(.title)
+                .offset(x:-120,y:-50)
+            Image(systemName: "lock")
+                .offset(x:-180,y:-75)
+//Info Change
+            Text("Change information here:")
+              .offset(x:-90, y:-60)
+            VStack{
+                TextField("Email:", text: $textFieldEmail)
+                    .border(Color.black)
+                    .padding()
+                  .offset(y:-70)
+                TextField("Phone:", text: $textFieldPhone)
+                    .border(Color.black)
+                    .padding()
+                  .offset(y:-80)
+                TextField("Zip Code:", text: $textFieldAddress)
+                    .border(Color.black)
+                    .padding()
+                  .offset(y:-90)
+            }//vstack
+// Customer Service
+            Text("Customer Service")
+                .font(.title)
+               .offset(x:-60, y:-100)
+            Image(systemName: "phone")
+                .offset(x:-180, y:-125)
+            Text("Please contact: Email@gmaildotcom")
+                .offset(x:-40,y:-110)
+    //Accessibility
+            ZStack{
+                HStack{
+                    Image(systemName: "figure")
+                    //.offset(x:-180 , y:-35)
+                    Text("Accessibility")
+                        .font(.title)
+                    //.offset(x:-100, y:100)
+                    
+                }.offset(x:-100, y: -120)//hstack
+                VStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius:20)
+                            .fill(Color.secondary)
+                            .opacity(0.5)
+                            .frame(height:50)
+                            .padding()
+                        Picker(selection: $myPick,
+                               label: Text("Language")){
+                            ForEach(0..<bigIdeas.count, id: \.self){
+                                Text(self.bigIdeas[$0]).tag($0)
+                            } //Foreach
+                        }//Picker
+                    }.offset(y:-60)//zstack
+                    
+                } // vstack
+            }// zstack
+        } // zstack
+    }//body
+}//view
+
+#Preview {
+    SettingView()
+}
+
